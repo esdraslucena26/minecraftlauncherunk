@@ -4,7 +4,7 @@ import java.awt.*;
 import java.io.File;
 
 public class MinecraftLauncher extends JFrame {
-    private static final String VERSION_TEXT = "Versão: 1.20.1";
+    private static final String VERSION_TEXT = "alpha 1.1.2_01";
     private static final String BACKGROUND_PATH = "assets/background.png";
     private static final String LOGO_PATH = "assets/logo.png";
 

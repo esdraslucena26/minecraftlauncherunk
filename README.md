@@ -6,9 +6,9 @@ Launcher de exemplo feito em **Java Swing** com:
 - Imagem de logo por cima (`assets/logo.png`) que você pode substituir.
 - Campo para digitar username.
 - Botão **"Jogar"**.
-- Texto pequeno com a versão.
+- Texto fixo abaixo do botão: **"alpha 1.1.2_01"**.
 
-## Como executar
+## Como executar (Java)
 
 Pré-requisito: Java 17+ (ou Java 11+).
 
@@ -16,6 +16,23 @@ Pré-requisito: Java 17+ (ou Java 11+).
 javac src/MinecraftLauncher.java
 java -cp src MinecraftLauncher
 ```
+
+## Gerar `.exe` no Windows
+
+Este repositório inclui o script `build_exe.bat` para gerar um executável do launcher em PCs Windows.
+
+### Passos
+
+1. Abra o **Prompt de Comando** na pasta do projeto.
+2. Execute:
+
+```bat
+build_exe.bat
+```
+
+3. O executável será gerado dentro de `dist/` (saída do `jpackage`).
+
+> Observação: geração de `.exe` via `jpackage --type exe` precisa ser executada em Windows.
 
 ## Personalização de imagens
 
