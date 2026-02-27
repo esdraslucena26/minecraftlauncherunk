@@ -3,11 +3,26 @@ setlocal
 
 REM Build script for Windows: generates MinecraftLauncher.exe using jpackage.
 REM Requirements:
-REM - JDK 17+ with jpackage available
+REM - JDK 17+ with javac, jar and jpackage in PATH
 
 set APP_NAME=MinecraftLauncher
 set MAIN_CLASS=MinecraftLauncher
 set MAIN_JAR=%APP_NAME%.jar
+
+where javac >nul 2>nul || (
+  echo [ERRO] javac nao encontrado no PATH. Instale JDK 17+.
+  exit /b 1
+)
+
+where jar >nul 2>nul || (
+  echo [ERRO] jar nao encontrado no PATH. Instale JDK 17+.
+  exit /b 1
+)
+
+where jpackage >nul 2>nul || (
+  echo [ERRO] jpackage nao encontrado no PATH. Instale JDK 17+ completo.
+  exit /b 1
+)
 
 if not exist out mkdir out
 if not exist dist mkdir dist

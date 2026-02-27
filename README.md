@@ -21,7 +21,7 @@ java -cp src MinecraftLauncher
 
 Este repositório inclui o script `build_exe.bat` para gerar um executável do launcher em PCs Windows.
 
-### Passos
+### Passos locais (no seu Windows)
 
 1. Abra o **Prompt de Comando** na pasta do projeto.
 2. Execute:
@@ -33,6 +33,15 @@ build_exe.bat
 3. O executável será gerado dentro de `dist/` (saída do `jpackage`).
 
 > Observação: geração de `.exe` via `jpackage --type exe` precisa ser executada em Windows.
+
+## Gerar `.exe` automaticamente pelo GitHub Actions
+
+Também foi adicionado o workflow `.github/workflows/build-windows-exe.yml`.
+
+- Você pode disparar manualmente em **Actions > Build Windows EXE > Run workflow**.
+- O arquivo gerado fica como artefato **MinecraftLauncher-Windows**.
+
+Isso resolve ambientes Linux/macOS que não conseguem gerar `.exe` diretamente.
 
 ## Personalização de imagens
 
