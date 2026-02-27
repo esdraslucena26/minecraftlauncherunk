@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-REM Build script for Windows: generates MinecraftLauncher.exe using jpackage.
+REM Build script for Windows: generates MinecraftLauncher.exe (app image) using jpackage.
 REM Requirements:
 REM - JDK 17+ with javac, jar and jpackage in PATH
 
@@ -39,20 +39,24 @@ if errorlevel 1 (
   exit /b 1
 )
 
+REM Gera um app-image com executável direto (.exe), sem instalador.
 jpackage ^
-  --type exe ^
+  --type app-image ^
   --name %APP_NAME% ^
   --input dist ^
   --main-jar %MAIN_JAR% ^
   --main-class %MAIN_CLASS% ^
-  --dest dist ^
-  --win-shortcut ^
-  --win-menu
+  --dest dist
 
 if errorlevel 1 (
   echo [ERRO] Falha ao gerar EXE com jpackage.
   exit /b 1
 )
 
-echo [OK] EXE gerado em dist\%APP_NAME%\
+if exist dist\%APP_NAME%\%APP_NAME%.exe (
+  copy /Y dist\%APP_NAME%\%APP_NAME%.exe dist\%APP_NAME%.exe >nul
+)
+
+echo [OK] Executavel gerado: dist\%APP_NAME%\%APP_NAME%.exe
+echo [OK] Atalho copiado para: dist\%APP_NAME%.exe
 endlocal

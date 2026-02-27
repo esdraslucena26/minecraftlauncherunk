@@ -21,13 +21,14 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Build EXE
+      - name: Build EXE (app-image)
         shell: cmd
         run: build_exe.bat
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: MinecraftLauncher-Windows
+          name: MinecraftLauncher-Windows-EXE
           path: |
-            dist/**
+            dist/MinecraftLauncher.exe
+            dist/MinecraftLauncher/**
