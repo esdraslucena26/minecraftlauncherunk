@@ -43,6 +43,22 @@ Também foi adicionado o workflow `.github/workflows/build-windows-exe.yml`.
 - Você pode disparar manualmente em **Actions > Build Windows EXE > Run workflow**.
 - O artefato gerado é **MinecraftLauncher-Windows-EXE**.
 
+
+## Referências para evolução (MultiMC e PrismLauncher)
+
+Atendendo sua sugestão, foi incluído um fluxo para analisar internamente esses launchers:
+
+- Script: `scripts/analyze_upstream.sh`
+- Relatório: `docs/upstream-analysis.md`
+
+Execute:
+
+```bash
+./scripts/analyze_upstream.sh
+```
+
+Isso clona/atualiza os dois projetos, extrai sinais de requisitos/build/estrutura e gera um relatório para orientar melhorias neste launcher.
+
 ## Personalização de imagens
 
 1. Coloque a imagem de fundo em `assets/background.png`.
